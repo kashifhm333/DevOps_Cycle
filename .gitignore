@@ -1,0 +1,34 @@
+# Local .terraform folder (contains plugins/binaries)
+.terraform/
+
+# Terraform state files (contains sensitive infra data)
+*.tfstate
+*.tfstate.backup
+
+# Terraform variables (where you might store secrets locally)
+*.tfvars
+*.tfvars.json
+
+# Crash logs
+crash.log
+# Any file ending in .key or .pem
+*.key
+*.pem
+
+# Specific key files you might have created
+key.txt
+id_rsa
+id_rsa.pub
+
+# Dependency folders
+node_modules/
+dist/
+build/
+
+# Environment variables
+.env
+.env.local
+
+# Operating System files
+.DS_Store
+Thumbs.db

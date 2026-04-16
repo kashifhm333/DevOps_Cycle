@@ -1,0 +1,4 @@
+admin_ssh_key {
+          + public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDTTDd+AKeCJQrCT2Z1Xokgxy6iJZVhLBjQukAiBMzKclGNp+ZSl2yC4N656sbDS/s6Ituif8wNOCGY8KyPHEgSd0NOSteeN7K/Xb0kTYbjjIcmTd9JFxNNaF8zGoCUmTLYeItdmly6jU4zhPMtmTGCD3Ww9SRUIra3+A5DyGGVZTT9/C/QKn6lxxE8pbrxwpttnQxH+/kA0Vj8lN6ghwWM/zk7BJ4lZtjvXGrYAIEVsrkY/rpvmok18I43H/XqQBFthsip/47a5RWq9oxq96cloxfRT9lb6cXtzS08BZiokGoEEbVXlz8Sb/ZH7DZcYPJdETzdB4ZgXV5ck0p+YY5T"
+          + username   = "azureuser"
+        }

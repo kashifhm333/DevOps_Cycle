@@ -32,3 +32,11 @@ build/
 # Operating System files
 .DS_Store
 Thumbs.db
+
+maa.txt
+
+main.tf
+variables.tf
+outputs.tf
+providers.tf
+terraform.tfvars.example

@@ -64,6 +64,44 @@ resource "azurerm_network_interface" "nic" {
     azurerm_public_ip.public_ip
   ]
 }
+# 1. Create the Security Group
+resource "azurerm_network_security_group" "web_nsg" {
+  name                = "static-site-nsg"
+  location            = azurerm_resource_group.web_rg.location
+  resource_group_name = azurerm_resource_group.web_rg.name
+
+  # Rule for SSH (So GitHub can deploy)
+  security_rule {
+    name                       = "SSH"
+    priority                   = 1001
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "*"
+    destination_port_range     = "22"
+    source_address_prefix      = "*"
+    destination_address_prefix = "*"
+  }
+
+  # Rule for HTTP (So you can see your website)
+  security_rule {
+    name                       = "HTTP"
+    priority                   = 1002
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "*"
+    destination_port_range     = "80"
+    source_address_prefix      = "*"
+    destination_address_prefix = "*"
+  }
+}
+
+# 2. Attach the Security Group to your Network Interface
+resource "azurerm_network_interface_security_group_association" "nsg_assoc" {
+  network_interface_id      = azurerm_network_interface.nic.id
+  network_security_group_id = azurerm_network_security_group.web_nsg.id
+}
 
 # 6. Linux VM
 resource "azurerm_linux_virtual_machine" "vm" {
